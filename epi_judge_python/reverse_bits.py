@@ -3,7 +3,15 @@ from test_framework import generic_test
 
 def reverse_bits(x: int) -> int:
     # TODO - you fill in here.
-    return 0
+    i = 63
+    res = 0
+    while i>=0:
+        val = ((x>>i)&1)
+        if val == 1:
+            res = res | 1<<(63-i)
+        i -= 1
+        # j += 1 
+    return res
 
 
 if __name__ == '__main__':
