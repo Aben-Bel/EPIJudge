@@ -8,8 +8,16 @@ from test_framework.test_utils import enable_executor_hook
 
 
 def even_odd(A: List[int]) -> None:
-    # TODO - you fill in here.
-    return
+    even = 0
+    odd = len(A) - 1
+    while even<odd:
+        if A[even] & 1 == 0:
+            even+=1
+        else:
+            A[even], A[odd] = A[odd], A[even]
+            odd -= 1
+
+    return A
 
 
 @enable_executor_hook
@@ -20,8 +28,10 @@ def even_odd_wrapper(executor, A):
 
     in_odd = False
     for a in A:
+
         if a % 2 == 0:
             if in_odd:
+                print(A)
                 raise TestFailure('Even elements appear in odd part')
         else:
             in_odd = True
