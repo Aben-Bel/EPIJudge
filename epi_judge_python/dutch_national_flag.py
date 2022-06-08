@@ -9,8 +9,20 @@ RED, WHITE, BLUE = range(3)
 
 
 def dutch_flag_partition(pivot_index: int, A: List[int]) -> None:
-    # TODO - you fill in here.
-    return
+    less = []
+    equal = []
+    greater = []
+    for num in A:
+        if num < A[pivot_index]:
+            less.append(num)
+        elif num > A[pivot_index]:
+            greater.append(num)
+        else:
+            equal.append(num)
+
+    res = less + equal + greater
+    for i in range(len(A)):
+        A[i] = res[i]
 
 
 @enable_executor_hook
@@ -34,6 +46,7 @@ def dutch_flag_partition_wrapper(executor, A, pivot_idx):
         i += 1
 
     if i != len(A):
+        print("A: ", A)
         raise TestFailure('Not partitioned after {}th element'.format(i))
     elif any(count):
         raise TestFailure('Some elements are missing from original array')
