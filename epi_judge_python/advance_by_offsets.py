@@ -13,7 +13,6 @@ def can_reach_end(A: List[int]) -> bool:
         furthest = max(furthest, A[i]+i)
         i+=1
     return furthest >= len(A)-1
-    # 3,3,1,0,2,0,1
 
 
 
