@@ -1,11 +1,20 @@
+from functools import lru_cache
 from typing import List
 
 from test_framework import generic_test
 
 
+
+
 def can_reach_end(A: List[int]) -> bool:
-    # TODO - you fill in here.
-    return True
+    furthest = 0
+    i = 0 
+    while i<=furthest and i<len(A)-1:
+        furthest = max(furthest, A[i]+i)
+        i+=1
+    return furthest >= len(A)-1
+    # 3,3,1,0,2,0,1
+
 
 
 if __name__ == '__main__':
