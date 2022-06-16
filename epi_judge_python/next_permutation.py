@@ -4,9 +4,19 @@ from test_framework import generic_test
 
 
 def next_permutation(perm: List[int]) -> List[int]:
-    # TODO - you fill in here.
-    return []
+    k = len(perm) - 2
+    while k>=0 and perm[k] >= perm[k+1]:
+        k-=1
+    if k == -1:
+        return []
 
+    for i in range(len(perm)-1, k-1, -1):
+        if perm[i] > perm[k]:
+            perm[i], perm[k] = perm[k], perm[i]
+            break
+
+    perm[k+1:] = reversed(perm[k+1:])
+    return perm
 
 if __name__ == '__main__':
     exit(
