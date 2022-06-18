@@ -6,12 +6,13 @@ from test_framework import generic_test
 def apply_permutation(perm: List[int], A: List[int]) -> None:
     # 2,0,1,3
     # b,c,a,d
-    for i in range(len(perm)):
+    # a,c,b,d
+    for i in range(len(A)):
         next = i
-        while perm[next]>=0:
+        while perm[next] >= 0:
             A[i], A[perm[next]] = A[perm[next]], A[i]
             temp = perm[next]
-            perm[next]-=len(perm)
+            perm[next] -= len(perm)
             next = temp
     
 
