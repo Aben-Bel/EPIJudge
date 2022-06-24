@@ -7,9 +7,23 @@ from test_framework.test_utils import enable_executor_hook
 # Assume s is a list of strings, each of which is of length 1, e.g.,
 # ['r', 'a', 'm', ' ', 'i', 's', ' ', 'c', 'o', 's', 't', 'l', 'y'].
 def reverse_words(s):
-    # TODO - you fill in here.
-    return
+    s[:] = s[::-1]
+    j = 0
+    for i in range(len(s)):
+        if s[i] == " ":
+            s[j:i] = s[j:i][::-1]
+            j = i+1
+    
+    s[j:len(s)] = s[j:len(s)][::-1]
+    # val = "".join(s)
+    # li = val.split(" ")
+    # li = li[::-1]
+    # val = " ".join(li)
+    # for i in range(len(s)):
+    #     s[i] = val[i]
+    # return
 
+"Bob likes Alice"
 
 @enable_executor_hook
 def reverse_words_wrapper(executor, s):
