@@ -6,8 +6,20 @@ from test_framework.test_utils import enable_executor_hook
 
 
 def replace_and_remove(size: int, s: List[str]) -> int:
-    # TODO - you fill in here.
-    return 0
+    end = len(s)-1
+    start = size-1
+    
+    while start >= 0:
+        if s[start] == "a":
+            s[end] = "d"
+            s[end-1]= "d"
+            end -= 2
+        elif s[start] != "b":
+            s[end] = s[start]
+            end-=1
+        start -= 1
+
+    return end
 
 
 @enable_executor_hook
