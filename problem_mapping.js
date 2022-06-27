@@ -588,7 +588,7 @@ problem_mapping = {
                 "total": 3999
             },
             "Python: roman_to_integer.py": {
-                "passed": 0,
+                "passed": 3999,
                 "total": 3999
             }
         },
@@ -1988,7 +1988,7 @@ problem_mapping = {
                 "total": 102
             },
             "Python: phone_number_mnemonic.py": {
-                "passed": 102,
+                "passed": 0,
                 "total": 102
             }
         },

@@ -17,6 +17,7 @@ def phone_mnemonic(phone_number: str) -> List[str]:
             path.append(char)
             generate(i+1, path)
             path.pop()
+            
     generate(0, [])
     return list(result)
 
