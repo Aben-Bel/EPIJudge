@@ -1,4 +1,5 @@
 import functools
+from threading import current_thread
 from typing import Optional
 
 from list_node import ListNode
@@ -7,8 +8,22 @@ from test_framework.test_failure import TestFailure
 from test_framework.test_utils import enable_executor_hook
 
 
-def has_cycle(head: ListNode) -> Optional[ListNode]:
-    # TODO - you fill in here.
+def has_cycle(head: ListNode) -> Optional[ListNode]:    
+    slow = head
+    fast = head
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+        
+        # found instersection
+        if slow is fast:
+            ptr1 = head
+            ptr2 = slow
+            while ptr1 is not ptr2:
+                ptr1 = ptr1.next
+                ptr2 = ptr2.next
+            return ptr1
+    
     return None
 
 
